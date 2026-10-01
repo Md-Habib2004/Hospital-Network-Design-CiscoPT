@@ -1,0 +1,18 @@
+enable
+configure terminal
+hostname Router1
+interface GigabitEthernet0/0/0
+ ip address 172.31.50.1 255.255.255.224
+ no shutdown
+exit
+interface Serial0/1/0
+ ip address 172.31.50.162 255.255.255.252
+ no shutdown
+exit
+router ospf 1
+ network 172.31.50.0 0.0.0.31 area 0
+ network 172.31.50.160 0.0.0.3 area 0
+exit
+end
+write
+
